@@ -1,53 +1,31 @@
 import java.util.Scanner;
 
-public class task3 {
-    static int scanNumber() {
-        Scanner scan = new Scanner(System.in);
-        int number = scan.nextInt();
-        return number;
-       
-    }
-
-        static String scanOperations() {
-        Scanner scan = new Scanner(System.in);
-        String operations = scan.nextLine();
-        return operations;
-
-    }
-
-        static int getResult(String opr, int num1, int num2) {
+public class Task_3 {
+    public static void main(String[] args) {
+        Scanner iScanner = new Scanner(System.in, "Cp866");
+        System.out.println("Введите первок число: ");
+        int num1 = iScanner.nextInt();
+        System.out.println("Введите оператор: +, -, /, * ");
+        char operator = iScanner.next().charAt(0);
+        System.out.println("Введите второе число: ");
+        int num2 = iScanner.nextInt();
         int result = 0;
-        switch (opr) {
-            case "+":
+
+        switch (operator) {
+            case '+':
                 result = num1 + num2;
                 break;
-            case "-":
+            case '-':
                 result = num1 - num2;
                 break;
-            case "*":
+            case '/':
+                result = num1 / num2;
+                break;
+            case '*':
                 result = num1 * num2;
                 break;
-            case "/":
-                result = num1 / num2;
-
-            default:
-                System.out.println("Введите оператор: -, +, *, /");
-                break;
         }
-        return result;
-
+        System.out.printf("%s %s %s = %s", num1, operator, num2, result);
+        iScanner.close(); 
     }
-
-    public static void main(String[] args) {
-        System.out.println("Введите первое число: ");
-        int num1 = scanNumber();
-        System.out.println("Введите оператор: -, +, *, /");
-        String operations = scanOperations();
-        System.out.println("Введите второе число: ");
-        int num2 = scanNumber();
-        int result = getResult(operations, num1, num2);
-        System.out.printf("%d %s %d = %d", num1, operations, num2, result);
-
-    }
-
 }
